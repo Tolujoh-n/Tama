@@ -2,80 +2,21 @@ import React, { useState, useEffect } from "react";
 import metamask from "../assets/img/metamask.png";
 import keplr from "../assets/img/keplr.jpg";
 import leap from "../assets/img/leap.png";
-import web3 from "../web3";
+import Image from "next/image";
 
 interface ConnectwalletModalProps {
   onClose: () => void;
   onConnect: (address: string, walletType: string) => void;
 }
 
-const Connectwallet: React.FC<ConnectwalletModalProps> = ({ onClose }) => {
-  const [isWalletConnected, setIsWalletConnected] = useState<boolean>(false);
-  const [walletAddress, setWalletAddress] = useState<string>("");
-
-  useEffect(() => {
-    const checkWalletConnection = async () => {
-      if (web3.currentProvider) {
-        try {
-          await (web3.currentProvider as any).request({
-            method: "eth_requestAccounts",
-          });
-
-          const accounts: string[] = await web3.eth.getAccounts();
-          const isConnected: boolean = accounts.length > 0;
-
-          setIsWalletConnected(isConnected);
-          setWalletAddress(accounts[0]);
-        } catch (error) {
-          console.error("Failed to connect the wallet:", error);
-        }
-      }
-    };
-
-    checkWalletConnection();
-  }, []);
-
-  const connectWallet = async (walletType: string) => {
-    switch (walletType) {
-      case "metamask":
-        if (typeof (window as any).ethereum !== "undefined") {
-          try {
-            await (window as any).ethereum.request({
-              method: "eth_requestAccounts",
-            });
-            setIsWalletConnected(true);
-            const accounts: string[] = await web3.eth.getAccounts();
-            setWalletAddress(accounts[0]);
-          } catch (error) {
-            console.error("Failed to connect Metamask:", error);
-          }
-        } else {
-          window.open("https://metamask.io/download.html", "_blank");
-        }
-        break;
-      case "keplr":
-        window.open("https://www.keplr.app/download", "_blank");
-        break;
-      case "leap":
-        window.open("https://www.leapwallet.io/download", "_blank");
-        break;
-      default:
-        console.error("Invalid wallet type");
-    }
-  };
-
-  const disconnectWallet = () => {
-    setIsWalletConnected(false);
-    setWalletAddress("");
-  };
-
+const Connectwallet: React.FC = () => {
+  // const Connectwallet: React.FC = ({ onClose }) => {
   return (
     <div className="modal" style={modalStyle}>
       <div className="modal-content" style={modalContentStyle}>
         <span
           style={{ cursor: "pointer", textAlign: "right" }}
           className="close"
-          onClick={onClose}
         >
           &times;
         </span>
@@ -89,10 +30,9 @@ const Connectwallet: React.FC<ConnectwalletModalProps> = ({ onClose }) => {
               borderRadius: "10px",
               cursor: "pointer",
             }}
-            onClick={() => connectWallet("keplr")}
           >
             <div className="">
-              <img
+              <Image
                 src={keplr}
                 style={{
                   height: "70px",
@@ -119,10 +59,9 @@ const Connectwallet: React.FC<ConnectwalletModalProps> = ({ onClose }) => {
               borderRadius: "10px",
               cursor: "pointer",
             }}
-            onClick={() => connectWallet("leap")}
           >
             <div className="">
-              <img
+              <Image
                 src={leap}
                 style={{
                   height: "70px",
@@ -149,10 +88,9 @@ const Connectwallet: React.FC<ConnectwalletModalProps> = ({ onClose }) => {
               borderRadius: "10px",
               cursor: "pointer",
             }}
-            onClick={() => connectWallet("metamask")}
           >
             <div className="">
-              <img
+              <Image
                 src={metamask}
                 style={{
                   height: "70px",

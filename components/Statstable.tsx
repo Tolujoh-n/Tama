@@ -5,6 +5,7 @@ import ninja from "../assets/img/ninja.webp";
 import toxic from "../assets/img/toxic.webp";
 import pepes from "../assets/img/pepe.webp";
 import rugberbs from "../assets/img/rugberbs.webp";
+import Image from "next/image";
 
 const tableData = [
   {
@@ -75,7 +76,7 @@ const Statstable: React.FC = () => {
                 data-label="Job Id"
                 style={{ display: "flex", alignItems: "center" }}
               >
-                <img
+                <Image
                   src={row.collectionimg}
                   alt="Product"
                   id="tableimg"
@@ -106,7 +107,11 @@ const Statstable: React.FC = () => {
                   <h5>
                     {row.avaliablepool}{" "}
                     <span>
-                      <img src={coin} className="coin-table-image" alt="coin" />
+                      <Image
+                        src={coin}
+                        className="coin-table-image"
+                        alt="coin"
+                      />
                     </span>
                   </h5>
                   <span>{row.offerstaken}</span>
@@ -116,7 +121,7 @@ const Statstable: React.FC = () => {
                 <h5>
                   {row.bestoffer}{" "}
                   <span>
-                    <img src={coin} className="coin-table-image" alt="coin" />
+                    <Image src={coin} className="coin-table-image" alt="coin" />
                   </span>
                 </h5>
               </td>
@@ -124,7 +129,7 @@ const Statstable: React.FC = () => {
                 <h5>
                   {row.interest}{" "}
                   <span>
-                    <img src={coin} className="coin-table-image" alt="coin" />
+                    <Image src={coin} className="coin-table-image" alt="coin" />
                   </span>
                 </h5>
                 <span>{row.interestrate}</span>
