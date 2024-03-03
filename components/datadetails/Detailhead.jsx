@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import partimg from "../../assets/img/partage-log.png";
+import partimg from "../../assets/img/junk4.png";
 
 const Detailhead = ({ onClick }) => {
   return (

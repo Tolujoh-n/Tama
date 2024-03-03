@@ -1,6 +1,6 @@
 import React from "react";
-import joinimg from "../../assets/img/partabout.png";
-import boxImage2 from "../../assets/img/partabout.png";
+import joinimg from "../../assets/img/junk3.png";
+import boxImage2 from "../../assets/img/junk3.png";
 import Image from "next/image";
 
 const Description = () => {
@@ -9,10 +9,33 @@ const Description = () => {
       <section id="nftdetails" className="nftdetails">
         <div className="container">
           <div id="aboutmore" className="row">
-            <div className="col-lg-6 col-md-6 order-1 order-lg-1 content">
+            <div className="col-lg-6 col-md-6 pt-4 pt-lg-0 order-1 order-lg-1 content">
+              <div className="card" style={{ width: "100%" }}>
+                <Image src={joinimg} className="card-img-top" alt="..." />
+
+                <div className="card-body">
+                  <h5 className="card-title">
+                    <a href="/details">DataSale Title</a>
+                  </h5>
+                </div>
+
+                <div className="price-container">
+                  <span className="price left">
+                    <span style={{ color: "white" }}>0.23 ETH</span>
+                    <br></br>
+                    <span style={{ color: "gray" }} id="pricetag">
+                      Last Sale:0.343 ETH
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <a id="provbut" class="full-width-button">
+                BUY
+              </a>
+            </div>
+            <div className="col-lg-6 col-md-6 order-2 order-lg-2 content">
               <div className="headpare">
                 <h5>Created By</h5>
-
                 <p className="description">
                   <Image src={joinimg} id="collectionprofile" alt="..." />{" "}
                   <span id="pricetag">Shoosi pank</span>
@@ -66,38 +89,6 @@ const Description = () => {
                   <span id="pricetag">Hokushi</span>
                 </p>
               </div>
-            </div>
-            <div className="col-lg-6 col-md-6 pt-4 pt-lg-0 order-2 order-lg-2 content">
-              <h3>00 : 00 : 00</h3>
-
-              <div className="card">
-                <Image src={joinimg} className="card-img-top" alt="..." />
-
-                <div className="card-body">
-                  <h5 className="card-title">
-                    <a href="">gedhge</a>
-                  </h5>
-                  <p className="description">
-                    <Image src={joinimg} id="collectionprofile" alt="..." />{" "}
-                    <span id="pricetag">bkbef</span>
-                  </p>
-                </div>
-                <div className="price-container">
-                  <span className="price left">
-                    <span style={{ color: "gray" }}>Daily Price</span>
-                    <br></br>
-                    <span id="pricetag">2.46 USDT</span>
-                  </span>
-                  <span className="price right">
-                    <span style={{ color: "gray" }}>Montly Price</span>{" "}
-                    <br></br>
-                    <span id="pricetag">4.76 USDT</span>
-                  </span>
-                </div>
-              </div>
-              <a id="provbut" class="full-width-button">
-                BUY
-              </a>
             </div>
           </div>
         </div>

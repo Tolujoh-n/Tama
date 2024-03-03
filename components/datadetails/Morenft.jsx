@@ -54,7 +54,7 @@ const Morenft = () => {
   return (
     <section id="nftcollections" className="nftcollections">
       <div className="container">
-        <div className="text-left">
+        {/* <div className="text-left">
           <span className="nfth">All</span>
           <span className="nfth">Art</span>
           <span className="nfth">Gaming</span>
@@ -62,7 +62,7 @@ const Morenft = () => {
           <span className="nfth">PFPs</span>
           <span className="nfth">Photography</span>
           <span className="nfth">Music</span>
-        </div>
+        </div> */}
         <br />
         <div className="col-12">
           <h2 style={{ color: "whitesmoke" }}>Notable collections</h2>

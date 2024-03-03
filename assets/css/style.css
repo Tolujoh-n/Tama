@@ -894,6 +894,140 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Nft details
+--------------------------------------------------------------*/
+.nftdetails .card-text {
+  color: gray;
+}
+.nftdetails .card-body .card-title {
+  color: whitesmoke;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+#nftdetails .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  color: deepskyblue;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+#provhead {
+  color: #fff;
+  font-weight: 700px;
+  font-size: 40px;
+}
+
+#nftdetails .social-links a:hover {
+  background: deepskyblue;
+  color: #fff;
+  text-decoration: none;
+}
+/* provbut */
+#provbut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: deepskyblue;
+  color: black;
+  border: 2px solid deepskyblue;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Icon styles */
+#provbut .bi-clipboard,
+#provbut .bi-plus {
+  margin-right: 10px;
+}
+
+#provbut:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .providerbut {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #provbut {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #provbut.full-width-button {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+}
+/* provfolbut */
+#provfolbut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid deepskyblue;
+  border-radius: 20px;
+  color: deepskyblue;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Icon styles */
+#provfolbut .bi-clipboard,
+#provfolbut .bi-plus {
+  margin-right: 10px;
+}
+
+#provfolbut:hover {
+  background-color: deepskyblue;
+  color: black;
+  border: 2px solid deepskyblue;
+}
+
+@media screen and (min-width: 768px) {
+  .providerbut {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #provfolbut {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #provfolbut .full-width-button {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+}
+
+/*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
