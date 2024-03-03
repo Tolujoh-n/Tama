@@ -25,8 +25,13 @@ const Header: React.FC = () => {
             </li>
 
             <li>
-              <a href="/portfolio" className="nav-link scrollto">
-                Drops
+              <a href="/dashboard" className="nav-link scrollto">
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="/" className="nav-link scrollto">
+                <i style={{ fontSize: "large" }} className="bi-cart"></i>
               </a>
             </li>
 
