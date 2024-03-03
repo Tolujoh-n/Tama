@@ -672,6 +672,228 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#smallhero {
+  width: 100%;
+  height: 80vh;
+  background: url("../img/junk4.png") top center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+
+#smallhero:before {
+  content: "";
+  background: rgba(13, 20, 26, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#smallhero .smallhero-container {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#smallhero h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  text-transform: uppercase;
+  color: deepskyblue;
+}
+
+#smallhero h2 {
+  color: #eee;
+  margin-bottom: 50px;
+  font-size: 24px;
+}
+
+#smallhero .btn-get-started {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-block;
+  padding: 10px 35px 10px 35px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #000;
+  background: deepskyblue;
+  border: 2px solid deepskyblue;
+}
+
+#smallhero .btn-get-started:hover {
+  color: deepskyblue;
+  border-color: deepskyblue;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#smallhero .btn-watch-video {
+  font-size: 16px;
+  display: inline-block;
+  transition: 0.5s;
+  margin-left: 25px;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#smallhero .btn-watch-video i {
+  line-height: 0;
+  color: #fff;
+  font-size: 32px;
+  transition: 0.3s;
+  margin-right: 8px;
+}
+
+#smallhero .btn-watch-video:hover i {
+  color: deepskyblue;
+}
+@media (min-width: 1024px) {
+  #smallhero {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  #smallhero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #smallhero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+/*--------------------------------------------------------------
+# nftdetails
+--------------------------------------------------------------*/
+#nftdetails {
+  background-color: black;
+}
+.nftdetails .container {
+  box-shadow: 0px 2px 15px rgba(43, 41, 41, 0.1);
+  padding-bottom: 15px;
+}
+.nftdetails .content {
+  font-size: 15px;
+  color: #d4e2e6;
+}
+
+.nftdetails .content h3 {
+  font-weight: 700;
+  font-size: 30px;
+  color: #98aebd;
+}
+.nftdetails .content h5 {
+  font-weight: 400;
+  font-size: 20px;
+  color: #858584;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.nftdetails .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nftdetails .content ul li {
+  padding-bottom: 10px;
+  padding-left: 28px;
+  position: relative;
+}
+
+.nftdetails .content ul i {
+  font-size: 24px;
+  color: #c8ff00;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+.nftdetails .content p:last-child {
+  margin-bottom: 0;
+}
+
+.nftdetails .card {
+  border-radius: 10px;
+  width: 70%;
+  border: 1px solid rgba(29, 42, 53, 0.7);
+
+  background-color: rgba(29, 42, 53, 0.7);
+  margin-bottom: 30px;
+  box-shadow: 0 0 29px 0 rgba(18, 66, 101, 0.08);
+  /* transition: all 0.3s ease-in-out; */
+}
+.nftdetails .card-img-top {
+  height: 300px !important;
+  width: 100% !important;
+}
+
+.nftdetails .card-title {
+  color: deepskyblue;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 5px;
+}
+.nftdetails .card-title a {
+  color: #e5e7dc;
+}
+.nftdetails .card-title a:hover {
+  color: deepskyblue;
+}
+
+.nftdetails .card-text {
+  color: #fff;
+  text-align: left;
+}
+
+#buybut {
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  border-radius: 20px;
+  width: 70%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: deepskyblue;
+}
+#buybut:hover {
+  background-color: #acd700;
+  color: #464343;
+}
+
+@keyframes pulsate-btn {
+  0% {
+    transform: scale(0.6, 0.6);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+
+/*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
@@ -861,7 +1083,7 @@ section {
 }
 
 .nftcollections .card-title {
-  color: #c5f801;
+  color: deepskyblue;
   font-weight: 700;
   text-align: left;
   margin-bottom: 5px;
@@ -884,7 +1106,7 @@ section {
   color: #e5e7dc;
 }
 .nftcollections .card-title a:hover {
-  color: #c5f801;
+  color: deepskyblue;
 }
 
 .nftcollections .card-text {
@@ -894,7 +1116,7 @@ section {
 
 .nftcollections .card:hover {
   transform: scale(1.08);
-  color: #c5f801;
+  color: deepskyblue;
 }
 /* .nftcollections .icon-box:hover {
   transform: scale(1.08);
@@ -906,7 +1128,7 @@ section {
 }
 
 .nftcollections .icon-box:hover .title a {
-  color: #c5f801;
+  color: deepskyblue;
 }
 
 .nftcollections .command {
@@ -928,7 +1150,7 @@ section {
   height: 60px;
   width: 100%;
   border-radius: 10px;
-  background-color: #c5f801;
+  background-color: deepskyblue;
   color: #000;
   text-align: center;
   font-size: medium;

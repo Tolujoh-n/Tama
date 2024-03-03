@@ -1,91 +1,75 @@
 import React from "react";
-import junk1 from "../assets/img/junk1.png";
-import junk2 from "../assets/img/junk2.png";
-import junk3 from "../assets/img/junk3.png";
-import junk4 from "../assets/img/junk4.png";
-import boxImage1 from "../../assets/img/connect-wallet.jpg";
-import boxImage2 from "../assets/img/about1.png";
-import boxImage3 from "../../assets/img/receive-password.jpg";
+import junk1 from "../../assets/img/junk1.png";
+import junk2 from "../../assets/img/junk2.png";
+import junk3 from "../../assets/img/junk3.png";
+import junk4 from "../../assets/img/junk4.png";
 import Image from "next/image";
 
-const Mydata = () => {
+const Providerdata = () => {
   const items = [
     {
       image: junk1,
-      price: "2.5 ETH",
-      title: "Bob lane",
+      lastsale: "Last Sale: 0.242 ETH",
+      price: "0.242 ETH",
+      title: "TinFun #6129",
       profile: "Sooshio",
       highestbid: "4.5 ETH",
     },
     {
-      image: junk3,
-      price: "1.25 ETH",
-      title: "Bob lane",
-      profile: "Sooshio",
-      highestbid: "7.2 ETH",
-    },
-    {
-      image: junk3,
-      price: "1.25 ETH",
-      title: "Bob lane",
-      profile: "Sooshio",
-      highestbid: "7.2 ETH",
-    },
-    {
-      image: junk4,
-      price: "6.8 ETH",
-      title: "Bob lane",
-      profile: "Sooshio",
-      highestbid: "12.0 ETH",
-    },
-    {
       image: junk2,
-      price: "3.0 ETH",
-      title: "Bob lane",
+      lastsale: "Last Sale: 0.242 ETH",
+      price: "0.242 ETH",
+      title: "TinFun #6129",
       profile: "Sooshio",
       highestbid: "6.5 ETH",
     },
     {
       image: junk3,
-      price: "1.25 ETH",
-      title: "Bob lane",
+      lastsale: "Last Sale: 0.242 ETH",
+      price: "0.242 ETH",
+      title: "TinFun #6129",
       profile: "Sooshio",
       highestbid: "7.2 ETH",
     },
     {
       image: junk4,
-      price: "6.8 ETH",
-      title: "Bob lane",
+      lastsale: "Last Sale: 0.242 ETH",
+      price: "0.242 ETH",
+      title: "TinFun #6129",
       profile: "Sooshio",
       highestbid: "12.0 ETH",
     },
     {
       image: junk2,
-      price: "5.5 ETH",
-      title: "Testoo moo",
+      lastsale: "Last Sale: 0.242 ETH",
+      price: "0.242 ETH",
+      title: "TinFun #6129",
       profile: "moans",
       highestbid: "6.3 ETH",
     },
     {
       image: junk4,
-      price: "1.45 ETH",
-      title: "wdnwj joos",
-      profile: "gooad",
-      highestbid: "3.5 ETH",
+      lastsale: "Last Sale: 0.242 ETH",
+      price: "0.242 ETH",
+      title: "TinFun #6129",
+      profile: "Sooshio",
+      highestbid: "12.0 ETH",
     },
     {
-      image: junk3,
-      price: "1.25 ETH",
-      title: "Bob lane",
-      profile: "Sooshio",
-      highestbid: "7.2 ETH",
+      image: junk2,
+      lastsale: "Last Sale: 0.242 ETH",
+      price: "0.242 ETH",
+      title: "TinFun #6129",
+      profile: "moans",
+      highestbid: "6.3 ETH",
     },
     {
       image: junk4,
-      price: "6.8 ETH",
-      title: "Bob lane",
-      profile: "Sooshio",
-      highestbid: "12.0 ETH",
+      lastsale: "Last Sale: 0.242 ETH",
+      price: "0.242 ETH",
+      title: "TinFun #6129",
+      profile: "gooad",
+      highestbid: "3.5 ETH",
     },
   ];
 
@@ -103,7 +87,7 @@ const Mydata = () => {
         </div>
         <br />
         <div className="col-12">
-          <h2 style={{ color: "whitesmoke" }}>Notable collections</h2>
+          <h2 style={{ color: "whitesmoke" }}>CeatorName collections</h2>
         </div>
         <br></br>
         <div className="mynftsec">
@@ -114,7 +98,7 @@ const Mydata = () => {
                 className="col-lg-3 col-md-4 d-flex align-items-stretch"
               >
                 <div className="card">
-                  <a href="/collection">
+                  <a href="/details">
                     <Image
                       src={item.image}
                       className="card-img-top"
@@ -124,22 +108,16 @@ const Mydata = () => {
 
                   <div className="card-body">
                     <h5 className="card-title">
-                      <a href="/collection">{item.title}</a>
+                      <a href="/details">{item.title}</a>
                     </h5>
                   </div>
 
                   <div className="price-container">
                     <span className="price left">
-                      <span style={{ color: "gray" }}>Floor</span>
+                      <span style={{ color: "gray" }}>{item.price}</span>
                       <br></br>
                       <span style={{ color: "white" }} id="pricetag">
-                        {item.price}
-                      </span>
-                    </span>
-                    <span className="price right">
-                      <span style={{ color: "gray" }}>24h Price</span> <br></br>
-                      <span style={{ color: "white" }} id="pricetag">
-                        {item.highestbid}
+                        {item.lastsale}
                       </span>
                     </span>
                   </div>
@@ -153,4 +131,4 @@ const Mydata = () => {
   );
 };
 
-export default Mydata;
+export default Providerdata;
