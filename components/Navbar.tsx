@@ -5,7 +5,35 @@ import { Link, useLocation } from "react-router-dom";
 import Connectwallet from "./Connectwallet";
 import Buy from "./Buy";
 
-const Header: React.FC = () => {
+interface NavbarProps {
+  isWalletConnected: boolean;
+  walletAddress: string;
+  connectWallet: () => void;
+  disconnectWallet: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({
+  isWalletConnected,
+  walletAddress,
+  connectWallet,
+  disconnectWallet,
+}) => {
+  const [activeLink, setActiveLink] = useState<string>("");
+  const location = useLocation();
+  const truncatedAddress = isWalletConnected
+    ? `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}`
+    : "";
+
+  // Function to set the active link based on the current pathname
+  const setActive = (pathname: string) => {
+    setActiveLink(pathname);
+  };
+
+  // Effect to update active link when location changes
+  React.useEffect(() => {
+    setActiveLink(location.pathname);
+  }, [location.pathname]);
+
   // connect wallet modal
   const [isConnectwalletOpen, setIsConnectwalletOpen] = useState(false);
 
@@ -53,38 +81,84 @@ const Header: React.FC = () => {
           <nav id="navbar" className="navbar">
             <ul>
               <li>
-                <a href="/create" className="nav-link scrollto">
-                  Create
-                </a>
-              </li>
-
-              <li>
-                <a href="/stats" className="nav-link scrollto">
-                  Stats
-                </a>
-              </li>
-
-              <li>
-                <a href="/dashboard" className="nav-link scrollto">
-                  Dashboard
-                </a>
-              </li>
-              <li>
-                <a onClick={handleBuyClick} className="nav-link scrollto">
-                  <i style={{ fontSize: "large" }} className="bi-cart"></i>
-                </a>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  onClick={handleConnectwalletClick}
-                  className="btn btn-warning"
-                  style={{ background: "deepskyblue", color: "whitesmoke" }}
+                <Link
+                  to="/create"
+                  className={`nav-link scrollto ${
+                    activeLink === "/create" && "active"
+                  }`}
+                  onClick={() => setActive("/create")}
                 >
-                  Login
-                </button>
+                  create
+                </Link>
               </li>
+              <li>
+                <Link
+                  to="/stats"
+                  className={`nav-link scrollto ${
+                    activeLink === "/stats" && "active"
+                  }`}
+                  onClick={() => setActive("/stats")}
+                >
+                  Stats
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/dashboard"
+                  className={`nav-link scrollto ${
+                    activeLink === "/dashboard" && "active"
+                  }`}
+                  onClick={() => setActive("/dashboard")}
+                >
+                  Dashboard
+                </Link>
+              </li>
+
+              {isWalletConnected ? (
+                <>
+                  <li>
+                    <a onClick={handleBuyClick} className="nav-link scrollto">
+                      <i style={{ fontSize: "large" }} className="bi-cart"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <Link
+                      to="/"
+                      className={`nav-link scrollto ${
+                        activeLink === "/oxede" && "active"
+                      }`}
+                      onClick={() => setActive("/oxede")}
+                    >
+                      {truncatedAddress}
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="btn btn-warning"
+                      style={{
+                        background: "rgb(255, 119, 0)",
+                        color: "whitesmoke",
+                      }}
+                      onClick={disconnectWallet}
+                    >
+                      Disconnect
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <button
+                    type="button"
+                    onClick={handleConnectwalletClick}
+                    className="btn btn-warning"
+                    style={{ background: "deepskyblue", color: "whitesmoke" }}
+                  >
+                    Login
+                  </button>
+                </li>
+              )}
             </ul>
             <i className="bi bi-list mobile-nav-toggle"></i>
           </nav>
@@ -98,4 +172,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default Navbar;

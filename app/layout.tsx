@@ -1,3 +1,5 @@
+// "use server";
+// "use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -11,6 +13,8 @@ import "../assets/vendor/boxicons/css/boxicons.min.css";
 import "../assets/vendor/glightbox/css/glightbox.min.css";
 import "../assets/vendor/swiper/swiper-bundle.min.css";
 import "../assets/css/style.css";
+
+// import web3 from "../components/web3";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +32,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {" "}
-        <Navbar />
+        <Navbar
+          isWalletConnected={false}
+          walletAddress={""}
+          connectWallet={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+          disconnectWallet={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
         {children}
         <Footer />
       </body>

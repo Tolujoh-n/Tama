@@ -1,14 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ninja from "../assets/img/metamask.png";
 import coin from "../assets/img/inj.png";
 import Image from "next/image";
+import web3 from "./web3";
+
+interface ConnectwalletModalProps {
+  onClose: () => void;
+  onConnect: (address: string, walletType: string) => void;
+}
 
 interface ConnectwalletProps {
   onClose: () => void;
 }
 
 const Connectwallet: React.FC<ConnectwalletProps> = ({ onClose }) => {
-  const [field1, setField1] = useState<string>("");
+  const [isWalletConnected, setIsWalletConnected] = useState<boolean>(false);
+  const [walletAddress, setWalletAddress] = useState<string>("");
+
+  useEffect(() => {
+    const checkWalletConnection = async () => {
+      if (web3.currentProvider) {
+        try {
+          await (web3.currentProvider as any).request({
+            method: "eth_requestAccounts",
+          });
+
+          const accounts: string[] = await web3.eth.getAccounts();
+          const isConnected: boolean = accounts.length > 0;
+
+          setIsWalletConnected(isConnected);
+          setWalletAddress(accounts[0]);
+        } catch (error) {
+          console.error("Failed to connect the wallet:", error);
+        }
+      }
+    };
+
+    checkWalletConnection();
+  }, []);
+
+  const connectWallet = () => {
+    if (web3.currentProvider) {
+      (web3.currentProvider as any)
+        .request({ method: "eth_requestAccounts" })
+        .then((accounts: string[]) => {
+          setIsWalletConnected(true);
+          setWalletAddress(accounts[0]);
+        })
+        .catch((error: Error) => {
+          console.log(error);
+        });
+    } else {
+      window.open("https://metamask.io/download.html", "_blank");
+    }
+  };
+
+  const disconnectWallet = () => {
+    setIsWalletConnected(false);
+    setWalletAddress("");
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,6 +86,7 @@ const Connectwallet: React.FC<ConnectwalletProps> = ({ onClose }) => {
               borderRadius: "10px",
               cursor: "pointer",
             }}
+            onClick={connectWallet}
           >
             <div className="">
               <Image
